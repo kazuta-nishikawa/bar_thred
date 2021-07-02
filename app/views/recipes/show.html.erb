@@ -1,0 +1,31 @@
+<div class="row justify-content-md-center">
+        <div class="card col-md-8">
+                <%= attachment_image_tag @recipe, :image, class:"card-image-top"%>
+            <div class="card-body">
+                <h1 class="card-title "><%= @recipe.title %></h1>
+                
+                <div class="row justify-content-end">
+                    <% if user_signed_in? %>
+                    <% if @recipe.user.id == current_user.id %>
+                        <%= link_to "Edit",edit_recipe_path(@recipe) ,class:"btn btn-success btn-sm"%>
+                        <%= link_to "Delete",recipe_path(@recipe), method: :delte, data:{confirm:"削除します。よろしいですか？"},class:"btn btn-danger btn-sm" %>
+                    <% end %>
+                    <% end %>
+                </div>
+                
+                <div class="row ">
+                    <div class="col align-self-start">
+                        <p>投稿者：<%= link_to @recipe.user.username, user_path(@recipe.user.id)%><span class="text-muted"> | </span>
+                        投稿日：<%= @recipe.created_at.strftime("%Y-%m-%d") %></p>
+                    </div>
+                </div>
+                
+                <h5 class="card-text">レシピ</h5>
+                <hr class="mt-1">
+                <p class="card-text"><%= simple_format @recipe.body %></p>
+                
+            </div>
+        </div>
+</div>
+
+
