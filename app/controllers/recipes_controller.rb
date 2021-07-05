@@ -3,7 +3,13 @@ class RecipesController < ApplicationController
   before_action :correct_user, only:[:edit,:destroy]
   
   def index
-    @recipes = Recipe.all
+    if params[:base]
+      @recipes = Recipe.where(base: params[:base])
+    elsif params[:technique]
+      @recipes = Recipe.where(technique: params[:technique])
+    else
+      @recipes =  Recipe.order(id: :desc).page(params[:page]).per(25)
+    end
   end
 
   def show

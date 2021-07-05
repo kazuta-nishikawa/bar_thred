@@ -18,13 +18,18 @@
                     
                     
                         <li class="list-inline-item">
-                            <h5 class="font-weight-bold mb-0 d-block"><%= @count_recipes %></h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Recipes</small>
+                            <h5 class="font-weight-bold mb-0 d-block"><%= @count_recipes %></h5>
+                            <small class="text-muted"> <i class="fas fa-image mr-1"></i>Recipes</small>
                         </li>
                         <li class="list-inline-item">
-                            <h5 class="font-weight-bold mb-0 d-block"><%= @count_followers %></h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Followers</small>
+                            
+                            <h5 class="font-weight-bold mb-0 d-block"><%= @count_followers %></h5>
+                            <small class="text-muted"> <i class="fas fa-user mr-1"><%= link_to "Followers",followers_user_path %></i></small>
                         </li>
                         <li class="list-inline-item">
-                            <h5 class="font-weight-bold mb-0 d-block"><%= @count_followings %></h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Following</small>
+                            
+                            <h5 class="font-weight-bold mb-0 d-block"><%= @count_followings %></h5>
+                            <small class="text-muted"> <i class="fas fa-user mr-1"><%= link_to "Following",followings_user_path %></i></small>
                         </li>
                 </ul>
             </div>

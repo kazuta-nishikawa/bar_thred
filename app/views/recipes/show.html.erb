@@ -22,8 +22,8 @@
                 
                 <h5 class="card-text">レシピ</h5>
                 <hr class="mt-1">
-                <p><%= @recipe.base %></p>
-                <p><%= @recipe.technique %></p>
+                <p>ベース：<%= @recipe.base %></p>
+                <p>製法：<%= @recipe.technique %></p>
                 <p class="card-text"><%= simple_format @recipe.body %></p>
         </div>
                 
@@ -33,14 +33,14 @@
             <%= render 'posts/post_form', post:@post ,recipe:@recipe %>
         </div>
         
-        <% if @post == true %>
+        <% if @posts %>
             <% @posts.each do |post| %>
                 <div class="card-body">
-                    <div class="row">
+                    <div class="row justify-content-start">
+                            <b>>><%= post.comment_number %></b>
                         <div class="col">
                             <%= attachment_image_tag post.user, :profile_image ,fallback:"tender.png",size:"30x30"%>
                             <%= post.user.username%>
-                            <%= post.comment_number %>
                             <%= post.created_at.strftime("%Y年%m月%d日 %H:%M:%S") %>
                         </div>
                     </div>

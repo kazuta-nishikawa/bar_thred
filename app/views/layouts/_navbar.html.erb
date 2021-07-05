@@ -19,16 +19,16 @@
                 ベースから探す
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">ジン</a>
-                <a class="dropdown-item" href="#">ラム</a>
-                <a class="dropdown-item" href="#">テキーラ＆メスカル</a>
-                <a class="dropdown-item" href="#">ウォッカ</a>
-                <a class="dropdown-item" href="#">スコッチ</a>
-                <a class="dropdown-item" href="#">バーボン</a>
-                <a class="dropdown-item" href="#">ライウイスキー</a>
-                <a class="dropdown-item" href="#">その他ウイスキー</a>
-                <a class="dropdown-item" href="#">リキュール</a>
-                <a class="dropdown-item" href="#">その他</a>
+                <%= link_to "ジン",recipes_path(base:"gin") ,class:"dropdown-item" %>
+                <%= link_to "ラム",recipes_path(base:"run") ,class:"dropdown-item" %>
+                <%= link_to "ウォッカ",recipes_path(base:"vodka") ,class:"dropdown-item" %>
+                <%= link_to "テキーラ",recipes_path(base:"tequila") ,class:"dropdown-item" %>
+                <%= link_to "バーボン",recipes_path(base:"bourbon") ,class:"dropdown-item" %>
+                <%= link_to "スコッチ",recipes_path(base:"scotch") ,class:"dropdown-item" %>
+                <%= link_to "ライウイスキー",recipes_path(base:"rye") ,class:"dropdown-item" %>
+                <%= link_to "メスカル",recipes_path(base:"mezcal") ,class:"dropdown-item" %>
+                <%= link_to "リキュール",recipes_path(base:"liqueur") ,class:"dropdown-item" %>
+                <%= link_to "その他",recipes_path(base:"other") ,class:"dropdown-item" %>
               </div>
           </li>
           <li class="nav-item dropdown">
@@ -36,11 +36,11 @@
                 製法から探す
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">ビルド</a>
-                <a class="dropdown-item" href="#">ステア</a>
-                <a class="dropdown-item" href="#">シェイク</a>
-                <a class="dropdown-item" href="#">ブレンド</a>
-                <a class="dropdown-item" href="#">その他</a>
+                <%= link_to "ビルド",recipes_path(technique:"building") ,class:"dropdown-item" %>
+                <%= link_to "ステア",recipes_path(technique:"stiring") ,class:"dropdown-item" %>
+                <%= link_to "シェイク",recipes_path(technique:"shaken") ,class:"dropdown-item" %>
+                <%= link_to "ブレンド",recipes_path(technique:"blending") ,class:"dropdown-item" %>
+                <%= link_to "その他",recipes_path(technique:"other_way") ,class:"dropdown-item" %>
               </div>
           </li>
       </ul>
@@ -62,8 +62,8 @@
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item"><%= link_to "マイページ", user_path(current_user) %></a>
                 <a class="dropdown-item"><%= link_to "新規レシピ投稿", new_recipe_path %></a>
-                <a class="dropdown-item"><%= p"フォロー" %></a>
-                <a class="dropdown-item"><%= p"フォロワー" %></a>
+                <a class="dropdown-item"><%= link_to "フォロー", followings_user_path(current_user) %></a>
+                <a class="dropdown-item"><%= link_to "フォロワー", followers_user_path(current_user) %></a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item"><p class="text-center "><%= link_to "ログアウト",destroy_user_session_path, method: :delete %></p></a>
               </div>
