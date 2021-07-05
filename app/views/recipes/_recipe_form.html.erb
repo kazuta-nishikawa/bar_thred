@@ -10,13 +10,23 @@
             </div>
             
             <div class="form-group">
-                <%= f.label :body ,"作り方"%>
+                <%= f.label :base,"ベーススピリッツ" %>
+                <%= f.select :base, Recipe.bases.keys.map{|k|[I18n.t("enum.recipe.base.#{k}"), k]}, {},class:"form-control"%>
+            </div>
+            
+            <div class="form-group">
+                <%= f.label :technique,"製法" %>
+                <%= f.select :technique, Recipe.techniques.keys.map{|k|[I18n.t("enum.recipe.technique.#{k}"), k]},{}, class:"form-control" %>
+            </div>
+            
+            <div class="form-group">
+                <%= f.label :body ,"作り方:材料や手順、こだわりポイントなどを入力してください。"%>
                 <%= f.text_area :body, size:"20x5",class:"form-control"  %>
             </div>
                 
             <div class="form-group">
                 <%= f.label :iamge,"画像"%>
-                <%= f.attachment_field :image, class:"form-control"  %>
+                <%= f.attachment_field :image, class:"form-control-file"  %>
             </div>
             
             <%= f.submit "Submit",class:"btn btn-primary"%>

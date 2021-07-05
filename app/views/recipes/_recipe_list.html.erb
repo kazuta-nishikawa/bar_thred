@@ -11,7 +11,7 @@
                     <% end%>
                 </div>
                 <% if user_signed_in? %>
-                <% if recipe.user.id == current_user.id %>
+                    <% if recipe.user.id == current_user.id %>
                     <ul class="list-group list-group-flush"> 
                         <li class="list-group-item"><%= link_to "Edit",edit_recipe_path(recipe) ,class:"card-link"%></li>
                         <li class="list-group-item"><%= link_to "Delete",recipe_path(recipe), method: :delte, data:{confirm:"削除します。よろしいですか？"},class:"card-link" %></li>

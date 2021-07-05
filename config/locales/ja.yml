@@ -1,0 +1,23 @@
+ja:
+    enum:
+        recipe:
+            base:
+                default: "選択してください"
+                gin:      "ジン"
+                rum:      "ラム" 
+                vodka:    "ウォッカ" 
+                tequila:  "テキーラ" 
+                bourbon:  "バーボン"
+                scotch:   "スコッチ"
+                rye:      "ライウイスキー"
+                brandy:   "ブランデー"
+                mezcal:   "メスカル"
+                liqueur:  "リキュール"
+                other:    "その他"
+        
+            technique:
+                building:  "ビルド"
+                stiring:   "ステア"
+                shaken:    "シェイク"
+                blending:  "ブレンド"
+                other_way: "その他"

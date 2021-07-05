@@ -1,0 +1,21 @@
+<h4>Comment Form</h4>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+    
+        <%= form_with(model: post, local: true) do |f| %>
+            <%= render 'layouts/error_messages' ,model: f.object %>
+            <div class="form-group">
+                <%= f.label :content ,"このレシピにあなたの意見を書き込んでください！"%>
+                <%= f.text_area :content, size:"100x5",class:"form-control"  %>
+            </div>
+                
+            <% if user_signed_in? %>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                <%= f.hidden_field :recipe_id, :value => recipe.id %>
+                <%= f.hidden_field :comment_number, :value => recipe.posts.count+1 %>
+            <% end %>
+            
+            <%= f.submit "送信",class:"btn btn-primary"%>
+        <% end %>
+    </div>
+</div>

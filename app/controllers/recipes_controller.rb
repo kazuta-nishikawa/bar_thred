@@ -8,6 +8,8 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @posts = Post.where(recipe_id:params[:id])
+    @post = Post.new
   end
 
   def new
@@ -49,7 +51,7 @@ class RecipesController < ApplicationController
 
   private
     def recipe_params
-      params.require(:recipe).permit(:title,:body,:image)
+      params.require(:recipe).permit(:title,:body,:image,:base,:technique)
     end
     
     def correct_user

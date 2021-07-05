@@ -6,10 +6,10 @@
                 
                 <div class="row justify-content-end">
                     <% if user_signed_in? %>
-                    <% if @recipe.user.id == current_user.id %>
-                        <%= link_to "Edit",edit_recipe_path(@recipe) ,class:"btn btn-success btn-sm"%>
-                        <%= link_to "Delete",recipe_path(@recipe), method: :delte, data:{confirm:"削除します。よろしいですか？"},class:"btn btn-danger btn-sm" %>
-                    <% end %>
+                        <% if @recipe.user.id == current_user.id %>
+                            <%= link_to "Edit",edit_recipe_path(@recipe) ,class:"btn btn-success btn-sm"%>
+                            <%= link_to "Delete",recipe_path(@recipe), method: :delte, data:{confirm:"削除します。よろしいですか？"},class:"btn btn-danger btn-sm" %>
+                        <% end %>
                     <% end %>
                 </div>
                 
@@ -22,9 +22,38 @@
                 
                 <h5 class="card-text">レシピ</h5>
                 <hr class="mt-1">
+                <p><%= @recipe.base %></p>
+                <p><%= @recipe.technique %></p>
                 <p class="card-text"><%= simple_format @recipe.body %></p>
+        </div>
                 
+<!--posts（レシピに対するコメント）を表示する-->
+
+        <div  class="card-body">
+            <%= render 'posts/post_form', post:@post ,recipe:@recipe %>
+        </div>
+        
+        <% if @post == true %>
+            <% @posts.each do |post| %>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <%= attachment_image_tag post.user, :profile_image ,fallback:"tender.png",size:"30x30"%>
+                            <%= post.user.username%>
+                            <%= post.comment_number %>
+                            <%= post.created_at.strftime("%Y年%m月%d日 %H:%M:%S") %>
+                        </div>
+                    </div>
+                    <div>
+                        <p><%= simple_format post.content %></p>
+                    </div>
+                </div>
+            <% end %>
+        <% else %>
+            <div class="card-body">
+                <p>まだコメントはありません。最初のコメントを書きましょう！</p>
             </div>
+        <% end %>
         </div>
 </div>
 

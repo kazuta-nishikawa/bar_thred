@@ -66,6 +66,6 @@ gem 'kaminari'
 gem 'font-awesome-sass'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
-
+gem 'enum_help'
 
 gem 'pry-rails'

@@ -16,23 +16,28 @@
             <div class="bg-light p-4 d-flex justify-content-end text-center">
                 <ul class="list-inline mb-0">
                     
-                    <% if user_signed_in? %>
-                    <% if @user.id == current_user.id %>
-                                <%= link_to "Edit profile",edit_user_path(@user),class:"btn btn-sm btn-outline-dark" %>
-                                <%= @user.email %>
-                    <% end %>
-                    <% end %>
                     
                         <li class="list-inline-item">
-                            <h5 class="font-weight-bold mb-0 d-block">215</h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Recipes</small>
+                            <h5 class="font-weight-bold mb-0 d-block"><%= @count_recipes %></h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Recipes</small>
                         </li>
                         <li class="list-inline-item">
-                            <h5 class="font-weight-bold mb-0 d-block">745</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Followers</small>
+                            <h5 class="font-weight-bold mb-0 d-block"><%= @count_followers %></h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Followers</small>
                         </li>
                         <li class="list-inline-item">
-                            <h5 class="font-weight-bold mb-0 d-block">340</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Following</small>
+                            <h5 class="font-weight-bold mb-0 d-block"><%= @count_followings %></h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Following</small>
                         </li>
                 </ul>
+            </div>
+            <div class="bg-light p-4 d-flex justify-content-end text-center">
+                    <% if user_signed_in? %>
+                        
+                        <% if @user.id == current_user.id %>
+                                    <%= link_to "Edit profile",edit_user_path(@user),class:"btn btn-sm btn-outline-dark" %>
+                                    <%= @user.email %>
+                        <% end %>
+                    <% end %>
+                <!--フォローボタン-->
+                <%= render 'relationships/follow_button', user: @user %>
             </div>
             <div class="px-4 py-3">
                 <h5 class="mb-0">About</h5>

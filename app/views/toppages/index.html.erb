@@ -1,5 +1,17 @@
 <div class="center jumbotron">
-  <div class="text-center">
-    <h1>Welcome to the Cocktailpad</h1>
+  <div class="text-center text-light">
+    <h1>カクテル掲示板へようこそ</h1>
+    <p>あなたのカクテルに評価をもらいましょう！</p>
   </div>
 </div>
+
+
+
+
+<div class="row justify-content-md-center">
+  <div class="col-md-8">
+    <h2>新着カクテル</h2>
+    <p>もっと見る</p>
+  </div>
+</div>
+<div><%= render 'recipes/recipe_list', recipes:@recipes %></div>
