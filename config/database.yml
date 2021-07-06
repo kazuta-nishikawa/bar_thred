@@ -48,9 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
+<<: *default
   database: cocktailpad_production
   username: cocktailpad
   password: <%= ENV['COCKTAILPAD_DATABASE_PASSWORD'] %>
