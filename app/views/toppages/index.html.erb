@@ -8,10 +8,14 @@
 
 
 
-<div class="row justify-content-md-center">
-  <div class="col-md-8">
+<div class="row justify-content-md-start">
+  <div class="col mb-5 ">
     <h2>新着カクテル</h2>
-    <p>もっと見る</p>
   </div>
+  <div class="row justify-content-md-end">
+    <div class="col">
+      <%= link_to 'もっと見る >>',recipes_path ,class:"btn "%>
+    </div>
+  </div>
+<%= render 'recipes/recipe_list', recipes:@recipes %>
 </div>
-<div><%= render 'recipes/recipe_list', recipes:@recipes %></div>

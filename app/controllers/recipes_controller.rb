@@ -54,11 +54,20 @@ class RecipesController < ApplicationController
     @recipe.destroy
     redirect_to recipes_path
   end
+  
+  def search
+    # .search はモデルに記述。:keywordでtitle（カクテル名）をあいまい検索するメソッド
+    @recipes = Recipe.search(params[:keyword])
+  end
 
   private
     def recipe_params
       params.require(:recipe).permit(:title,:body,:image,:base,:technique)
     end
+    
+    # def serch_params
+    #   params.require(:recipe).permit(:keyword)
+    # end
     
     def correct_user
       @recipe = current_user.recipes.find_by(id: params[:id])

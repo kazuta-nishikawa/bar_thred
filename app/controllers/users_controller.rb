@@ -42,7 +42,18 @@ class UsersController < ApplicationController
     counts(@user)
   end
   
+  def search
+    @users = User.search(params[:keyword])
+  end
+  
+  
+  
+  
+  
+  
+  
   private
+  
   def user_params
     params.require(:user).permit(:username, :email, :profile, :profile_image)
   end
@@ -52,4 +63,6 @@ class UsersController < ApplicationController
     redirect_to user_path(current_user) unless current_user == @user
   end
     
+    
+  
 end

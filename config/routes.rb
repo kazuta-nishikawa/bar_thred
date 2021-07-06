@@ -11,11 +11,15 @@ Rails.application.routes.draw do
       get :followers
     end
     collection do
-      get :search
+      get 'search'
     end
   end
   
-  resources :recipes
+  resources :recipes do
+    collection do
+      get 'search'
+    end
+  end
   
   # コメントはレシピページで表示するため、一覧や詳細などは不要、発言の取り消しや編集はさせない
   resources :posts,only:[:create]
