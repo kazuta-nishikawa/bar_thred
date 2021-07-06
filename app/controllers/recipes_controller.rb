@@ -4,9 +4,9 @@ class RecipesController < ApplicationController
   
   def index
     if params[:base]
-      @recipes = Recipe.where(base: params[:base])
+      @recipes = Recipe.where(base: params[:base]).page(params[:page])
     elsif params[:technique]
-      @recipes = Recipe.where(technique: params[:technique])
+      @recipes = Recipe.where(technique: params[:technique]).page(params[:page])
     else
       @recipes =  Recipe.order(id: :desc).page(params[:page]).per(25)
     end

@@ -1,7 +1,7 @@
 <div class="row">
     <% recipes.each do |recipe| %>
         <div class="col">
-            <div class="card shadow-sm mb-5" style="width: 14rem;">
+            <div class="card shadow-sm mb-5" style="width: 12rem;">
                 <%= link_to recipe_path(recipe) do %>
                     <%= attachment_image_tag recipe ,:image, class:"card-image-top rounded-top"%>
                 <% end%>
@@ -22,3 +22,5 @@
         </div>
     <% end %>
 </div>
+            <%= paginate recipes %>
+    
