@@ -18,5 +18,4 @@ class Recipe < ApplicationRecord
     end
     
     
-    mount_uploader :image, ImageUploader
 end
