@@ -42,6 +42,9 @@ class UsersController < ApplicationController
     counts(@user)
   end
   
+
+  
+  
   def search
     @users = User.search(params[:keyword])
   end
