@@ -5,7 +5,9 @@
             <div class="px-4 pt-0 pb-4 cover">
                 <div class="media align-items-end profile-head">
                     <div class="profile mr-3">
-                        <%= attachment_image_tag @user, :profile_image, fallback:"tender.png",size:"130x130", class:"rounded mb-2 img-thumbnail" %>
+                        <% if @user.profile_image.attached? %>
+                            <%= image_tag @user.profile_image, fallback:"tender.png",size:"130x130", class:"rounded mb-2 img-thumbnail" %>
+                        <% end %>
                         </div>
                     <div class="media-body mb-5 text-white">
                         <h4 class="mt-0 mb-0"><%= @user.username%></h4>

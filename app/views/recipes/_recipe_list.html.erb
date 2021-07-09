@@ -2,8 +2,10 @@
     <% recipes.each do |recipe| %>
         <div class="col">
             <div class="card shadow-sm mb-5" style="width: 12rem;">
+                <% if recipe.image.attached? %>
                 <%= link_to recipe_path(recipe) do %>
-                    <%= attachment_image_tag recipe ,:image, class:"card-image-top rounded-top"%>
+                    <%= image_tag recipe.image, class:"card-image-top rounded-top"%>
+                <% end%>
                 <% end%>
                 <div class="card-body">
                     <%= link_to recipe_path(recipe) do %>

@@ -1,6 +1,8 @@
 <div class="row justify-content-md-center">
         <div class="card col-md-8">
-                <%= attachment_image_tag @recipe, :image, class:"card-image-top w-100 h-auto"%>
+            <% if @recipe.image.attached? %>
+                <%= image_tag @recipe.image, class:"card-image-top w-100 h-auto"%>
+            <% end %>
             <div class="card-body">
                 <h1 class="card-title "><%= @recipe.title %></h1>
                 
@@ -39,7 +41,9 @@
                     <div class="row justify-content-start">
                             <b>>><%= post.comment_number %></b>
                         <div class="col">
-                            <%= attachment_image_tag post.user, :profile_image ,fallback:"tender.png",size:"30x30"%>
+                            <% if post.user.profile_image.attached? %>
+                                <%= image_tag post.user.profile_image ,fallback:"tender.png",size:"30x30"%>
+                            <% end %>
                             <%= post.user.username%>
                             <%= post.created_at.strftime("%Y年%m月%d日 %H:%M:%S") %>
                         </div>
