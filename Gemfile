@@ -67,10 +67,7 @@ gem 'font-awesome-sass'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'enum_help'
+gem 'refile-s3'
 
 gem 'pry-rails'
 
-group :production do
-  gem 'pg', '>= 0.18', '< 2.0'
-end
-gem "aws-sdk-s3", require: false
